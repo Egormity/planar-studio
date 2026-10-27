@@ -1,0 +1,60 @@
+import type { CatalogEntry } from './types';
+
+export const CATALOG: readonly CatalogEntry[] = [
+  {
+    kind: 'sofa',
+    label: 'Linen sofa',
+    width: 210,
+    depth: 90,
+    color: '#d8c9b5',
+    description: 'A soft place to land.',
+  },
+  {
+    kind: 'chair',
+    label: 'Lounge chair',
+    width: 85,
+    depth: 85,
+    color: '#afbc9e',
+    description: 'A little corner of your own.',
+  },
+  {
+    kind: 'table',
+    label: 'Coffee table',
+    width: 110,
+    depth: 65,
+    color: '#b8906b',
+    description: 'Bring everything together.',
+  },
+  {
+    kind: 'bed',
+    label: 'Double bed',
+    width: 160,
+    depth: 210,
+    color: '#dbd5c9',
+    description: 'Room for a slower morning.',
+  },
+  {
+    kind: 'plant',
+    label: 'Indoor plant',
+    width: 55,
+    depth: 55,
+    color: '#7f9b75',
+    description: 'A touch of green.',
+  },
+  {
+    kind: 'rug',
+    label: 'Woven rug',
+    width: 250,
+    depth: 180,
+    color: '#e2d3bd',
+    description: 'Define a comfortable zone.',
+  },
+  {
+    kind: 'storage',
+    label: 'Sideboard',
+    width: 150,
+    depth: 45,
+    color: '#bc9875',
+    description: 'Keep the everyday in order.',
+  },
+];
