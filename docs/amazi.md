@@ -6,9 +6,10 @@ the entire project workspace. Application registration lives in Amazi, not in a 
 
 For source import into another project, create an `empty_application` and copy this repository's
 source into the allocated application directory. Keep the returned source path; do not overwrite
-other applications. GitHub synchronization copies the workspace tree and does not discover or
-register apps. Initial connection requires a repository without `main`, which is why this example
-starts on `feature/codex/planar-studio/2026-10-27`.
+other applications. This public template uses `main` as its default branch. GitHub synchronization
+copies the workspace tree and does not discover or register apps. Amazi's initial connection
+requires a repository without `main`; use a separate repository for a new synchronization
+connection, or keep an existing connection.
 
 | Setting                        | Value                                                |
 | ------------------------------ | ---------------------------------------------------- |

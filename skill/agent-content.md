@@ -8,16 +8,16 @@ select, change, measure, save, and export. Do not substitute a static illustrati
 
 [Planar Studio](https://github.com/Egormity/planar-studio) is a reusable React/TypeScript/SVG room and
 furniture planner with editable dimensions, selection/placement, rotation, pan/zoom, history, local
-saving, validated JSON import/export, and SVG presentation export. It may require repository access.
+saving, validated JSON import/export, and SVG presentation export. The public template is maintained on `main`.
 If it cannot be fetched, use available project files and the principles below; do not claim inspection.
 No public production preview has been supplied. An authenticated editor link is not a public preview.
 
 Read only the reference relevant to the work:
 
-- [Architecture](https://github.com/Egormity/planar-studio/blob/feature/codex/planar-studio/2026-10-27/docs/architecture.md) for document, viewport, gesture, and history ownership.
-- [Extension guide](https://github.com/Egormity/planar-studio/blob/feature/codex/planar-studio/2026-10-27/docs/extending.md) for new objects, constraints, or domains.
-- [Research](https://github.com/Egormity/planar-studio/blob/feature/codex/planar-studio/2026-10-27/docs/research.md) for renderer choices and primary sources.
-- [Amazi integration](https://github.com/Egormity/planar-studio/blob/feature/codex/planar-studio/2026-10-27/docs/amazi.md) for import and deployment.
+- [Architecture](https://github.com/Egormity/planar-studio/blob/main/docs/architecture.md) for document, viewport, gesture, and history ownership.
+- [Extension guide](https://github.com/Egormity/planar-studio/blob/main/docs/extending.md) for new objects, constraints, or domains.
+- [Research](https://github.com/Egormity/planar-studio/blob/main/docs/research.md) for renderer choices and primary sources.
+- [Amazi integration](https://github.com/Egormity/planar-studio/blob/main/docs/amazi.md) for import and deployment.
 
 Planar chooses native SVG for a bounded scene of up to 60 objects. Keep an existing suitable renderer.
 Konva can supply canvas interaction tools; Fabric can fit a rich graphics editor; PixiJS can fit

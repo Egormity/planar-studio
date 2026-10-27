@@ -90,9 +90,10 @@ Browser checks use the production build, Python 3 on port 4442, and Chrome at
 `/usr/bin/google-chrome`; set `CHROME_PATH` for a different Chromium installation. They exercise
 real pointer edits, history, room constraints, file import/export, persistence, and phone input.
 
-The repository starts on `feature/codex/planar-studio/2026-10-27` without `main`, for Amazi's
-initial GitHub connection. Repository synchronization and application registration are separate.
-A public production preview URL can be added after deployment.
+The public template is maintained on `main` in [Egormity/planar-studio](https://github.com/Egormity/planar-studio).
+Import its source into an Amazi application's allocated directory; see [Amazi setup](docs/amazi.md)
+for the separate GitHub synchronization connection requirements. A public production preview URL
+can be added after deployment.
 
 Original application code and SVG artwork are MIT licensed; dependencies and bundled fonts keep
 their respective licenses. See [LICENSE](LICENSE).
