@@ -1,0 +1,10 @@
+{
+  "userTitleEn": "Interactive 2D visualization",
+  "userTitleRu": "Интерактивная 2D-визуализация",
+  "userTitleEs": "Visualización 2D interactiva",
+  "userDescriptionEn": "Build interactive 2D visualizations, editors and configurators. Includes a reusable example, clear development stages, geometry and persistence, plus guidance for collisions, gravity, constraints, particles and performance when the workflow needs them.",
+  "userDescriptionRu": "Создавайте интерактивные 2D-визуализации, редакторы и конфигураторы. Пример для повторного использования, этапы разработки, геометрия и сохранение, а также коллизии, гравитация, ограничения, частицы и оптимизация для сложных задач.",
+  "userDescriptionEs": "Crea visualizaciones, editores y configuradores 2D interactivos. Incluye un ejemplo reutilizable, etapas de desarrollo, geometría y persistencia, además de colisiones, gravedad, restricciones, partículas y rendimiento según el caso.",
+  "icon": "ruler",
+  "agentDescription": "Use for building or extending interactive spatial 2D visualizations and editors: floor plans, furniture or construction previews, layouts, diagrams, and configurators with selection, manipulation, measurements, or export. Includes the Planar Studio React/TypeScript/SVG reference and guidance on document geometry, viewport coordinates, constraints, gesture transactions, history, import/export, accessibility, and Amazi integration. Preserve the user's domain and an existing suitable renderer. For playable game rules or ordinary statistical charts, use a foundation suited to those requirements. Also use for complex visualization workflows involving collision/clearance queries, gravity, rigid bodies, constraints, sensors, particles, animated assemblies or simulations. Choose the appropriate numerical model and renderer; distinguish implemented reference features from extension guidance and keep authoring data separate from transient simulation. Includes a staged development and validation flow."
+}
