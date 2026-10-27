@@ -68,6 +68,10 @@ window marks are not editable building openings; furniture clearance and collisi
 instructions are in `skill/agent-content.md`; Amazi assigns the custom skill UUID on creation.
 The skill links this example and its architecture, extension, research, and runtime documentation.
 
+The skill also covers collision queries, gravity, constraints, particles and simulation workflows.
+Those are deliberate extension paths; the example remains a static layout editor with room
+containment and allowed furniture overlap.
+
 The reference uses React, TypeScript, and native SVG. Persistent geometry never stores screen
 coordinates or renderer nodes. A drag preview is temporary; one completed gesture commits one
 history entry. No animation loop runs while the plan is idle.

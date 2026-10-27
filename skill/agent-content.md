@@ -24,6 +24,14 @@ Konva can supply canvas interaction tools; Fabric can fit a rich graphics editor
 GPU-heavy presentation. None replaces the application's document rules. Ordinary charts and playable
 games need foundations matching those requests; do not force them into a furniture-editor template.
 
+## Development flow
+
+1. Inspect the existing app, document model, renderer, asset licenses and runtime. Define a short capability map: viewing, editing, measurement, constraints, simulation, effects, persistence and export. Mark each requested capability as implemented, to build or out of scope; the reference is not a complete engine for every domain.
+2. Establish one representative end-to-end slice with real data: load an object, inspect/manipulate it, apply the domain rule, and save/reload or export the result. Set units, precision, target devices and realistic scene sizes before expanding the UI.
+3. Implement and test domain rules independently. Add one complex system at a time with explicit ownership and lifecycle, debug views, adjustable parameters and a small reproducible fixture. Preserve existing interactions while replacing illustrative data with the user's actual domain.
+4. Add polished rendering, physics or particles only after the core slice works. Profile representative stress scenes, tune quality to the target device and verify fallbacks. A successful build or attractive screenshot does not prove simulation stability or usable frame pacing.
+5. Verify the complete interaction and recovery loop: input, cancellation, reset, import validation, persistence, export, resource disposal and deployment asset paths. Prove an extension by adding a representative object or rule through the documented boundaries; report exactly which systems are present and which remain extension guidance.
+
 ## Structure the reusable base
 
 Keep these owners distinct at the scale the product needs:
@@ -89,11 +97,27 @@ Render on state changes; an idle document editor does not need a permanent anima
 realistic scene sizes before adding caching, virtualization, workers, or a different renderer. Clean up
 observers, temporary URLs, listeners, and interrupted gestures. Respect reduced motion for UI effects.
 
+## Collisions, gravity and advanced animation
+
+Choose the model from the requested behavior. Static placement constraints, animated explanatory diagrams and physical simulations need different owners. Planar itself is an SVG editor with room containment; it does not ship item collisions, gravity, particles, joints or a simulation loop.
+
+- For overlap or clearance rules, keep logical footprints separate from artwork. Use broad-phase bounds then the needed narrow-phase test (circles, oriented rectangles/SAT or polygons). Define contact tolerance, allowed overlaps/layers and advisory versus enforced constraints. Use spatial indexing only when measured scene sizes need it. Reuse rules for every edit/import path; a hit-test for clicking is not collision response.
+- For gravity, bouncing, stacking or mechanisms, choose a maintained 2D physics engine such as Rapier 2D or Matter.js after checking the installed version. Define the document-to-physics unit conversion, gravity direction, mass/density, friction and restitution. A top-down plan usually has no gravity in its drawing plane. Distinguish fixed, dynamic and kinematic objects; use sensors for detection without response and joints for constrained relative motion.
+- Keep authoring data separate from simulation state. Provide play/pause/reset when the product needs a simulation mode. Simulating must not append an undo entry every frame or overwrite a saved layout silently; baking the result is an explicit document command. A simulated drag needs a kinematic target or controlled constraint rather than two systems fighting over position.
+- Give one runtime owner a fixed simulation step with bounded catch-up and frame-time clamping; interpolate presentation when useful. Reset accumulated time after tab suspension. Render snapshots without making DOM/React layout decide physics. Test fast objects, thin obstacles, large mass ratios and repeated resets; consider continuous collision detection or substeps for demonstrated tunneling.
+- Treat particles as a separate bounded presentation system unless individual particles truly affect domain behavior. Define emitter rate, lifetime, maximum live count, seeded randomness for tests, pooling and cleanup. Avoid one React component or rigid body per decorative spark. For dense animated scenes, Canvas/PixiJS and batched particles can be more appropriate than thousands of SVG nodes; keep the document and commands reusable when changing renderer. Reduced-motion can remove decoration without changing the underlying data.
+- Graph/flow simulations, force-directed layouts, spring systems, field plots, cloth and fluids are separate numerical models. Choose a solver matching the requested accuracy, convergence and scale; do not label a generic particle effect as validated fluid or structural analysis. Long computations may belong in a worker, with versioned messages and cancellation to avoid applying stale results.
+
+Read [Rapier bodies](https://rapier.rs/docs/user_guides/javascript/rigid_bodies/), [colliders and sensors](https://rapier.rs/docs/user_guides/javascript/colliders/) and [scene queries](https://rapier.rs/docs/user_guides/javascript/scene_queries/) when adding physical interactions. [PixiJS particles](https://pixijs.com/8.x/guides/components/scene-objects/particle-container) describes a rendering option, not a physics solver; check its version-specific API.
+
 ## Amazi and verification
 
 Keep package files, lockfile, Vite config, source, assets, and Dockerfile at the allocated application
 root. A single root app can use source path `.`. GitHub synchronization does not register an application;
-preserve the path returned by Amazi when importing into an existing project. Honor injected `PORT`,
+load the current `project-application-configuration` guidance and use `empty_application` for imported
+source. Preserve the source path returned by Amazi instead of replacing another application. See
+[Amazi applications](https://docs.amazi.pro/en/applications) and
+[publishing](https://docs.amazi.pro/en/publishing-and-domains) for the public workflow. Honor injected `PORT`,
 `0.0.0.0`, Node 22 compatibility, the pinned package manager, and the Docker runtime contract.
 
 Test geometry, validation, history, and persistence separately. Then exercise real pointer and keyboard

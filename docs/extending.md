@@ -20,6 +20,34 @@ If the rule prevents placement, enforce it through every mutation path: pointer 
 
 For a different product such as a warehouse rack layout or construction component preview, retain document/history/import boundaries while replacing the domain vocabulary and geometry as needed. A connected diagram also needs stable edges and connection rules; replacing furniture artwork with rectangles does not provide graph behavior.
 
+## Add simulation or dense effects
+
+Planar currently has no physics engine or per-frame animation loop. Keep that idle editor behavior
+for ordinary layouts. A request for overlap warnings can use pure footprint queries without gravity;
+define allowed overlap layers (rugs versus furniture), contact tolerance and whether the result is
+advisory or enforced. Share enforced constraints across all commands and import paths.
+
+If the product needs gravity, collisions, springs or mechanisms, add a focused simulation module
+with its own state, fixed-step timing, body/shape mapping, events and lifecycle. Preserve authored
+centimetre geometry and convert explicitly into the engine's units. Y-down SVG coordinates must not
+accidentally reverse the chosen gravity convention. Fixed, kinematic and dynamic bodies have
+different roles; sensors detect without response, while joints constrain relative motion.
+
+Keep play/pause/reset separate from editing and history. A simulation preview should not rewrite
+the document every frame; applying a settled result is an explicit command. Limit accumulated time
+after a suspended tab and test rapid impacts, overlapping starts, resets and resource disposal.
+Numerical assumptions and accuracy must match the task; a generic rigid-body system does not
+provide a validated building or fluid solver.
+
+Dense particles or animated flow overlays may justify Canvas or PixiJS presentation. Keep document,
+commands and export reusable while changing the renderer. Own emitter budgets, pooled particles,
+lifetime, seeded fixtures and reduced-motion behavior. Do not allocate a DOM node or physics body
+per decorative particle. A new renderer also needs coordinate conversion, selection and accessibility;
+GPU rendering alone does not supply an editor.
+
+See the [visualization skill](../skill/agent-content.md) for the staged development workflow and
+primary physics/particle references. Keep the starter's implemented feature list accurate.
+
 ## Add a gesture
 
 A resize or rotation handle should be a transaction, just like dragging:
