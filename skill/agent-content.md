@@ -4,22 +4,17 @@ Build or extend interactive 2D layouts, spatial previews, diagrams, and configur
 user's domain and interaction goals; a room planner is one example. Establish what the user can
 select, change, measure, save, and export. Do not substitute a static illustration for requested editing.
 
+Inspect the example repository's current README and directory structure to locate its standalone application, architecture notes, extension guidance, and runtime setup. Discover paths from the checked-out source; do not assume a fixed branch, application directory name, or module layout.
+
 ## Working reference
 
 [Planar Studio](https://github.com/Egormity/planar-studio) is a reusable React/TypeScript/SVG room and
 furniture planner with editable dimensions, selection/placement, rotation, pan/zoom, history, local
-saving, validated JSON import/export, and SVG presentation export. The public template is maintained on `main`.
+saving, validated JSON import/export, and SVG presentation export. Use the current public repository as the reference.
 If it cannot be fetched, use available project files and the principles below; do not claim inspection.
 No public production preview has been supplied. An authenticated editor link is not a public preview.
 
-Read only the reference relevant to the work:
-
-- [Architecture](https://github.com/Egormity/planar-studio/blob/main/docs/architecture.md) for document, viewport, gesture, and history ownership.
-- [Extension guide](https://github.com/Egormity/planar-studio/blob/main/docs/extending.md) for new objects, constraints, or domains.
-- [Research](https://github.com/Egormity/planar-studio/blob/main/docs/research.md) for renderer choices and primary sources.
-- [Amazi integration](https://github.com/Egormity/planar-studio/blob/main/docs/amazi.md) for import and deployment.
-
-Planar chooses native SVG for a bounded scene of up to 60 objects. Keep an existing suitable renderer.
+Native SVG suits a bounded editable scene; confirm the example's current limits from its source. Keep an existing suitable renderer.
 Konva can supply canvas interaction tools; Fabric can fit a rich graphics editor; PixiJS can fit
 GPU-heavy presentation. None replaces the application's document rules. Ordinary charts and playable
 games need foundations matching those requests; do not force them into a furniture-editor template.
@@ -42,7 +37,7 @@ Keep these owners distinct at the scale the product needs:
 - Presentation maps the document into shapes; viewport and gesture previews stay transient.
 - DOM controls provide inspection, commands, error feedback, and keyboard/touch alternatives.
 
-Planar uses `src/model`, `src/editor`, `src/scene`, and `src/ui`. Add focused data and behavior before
+Locate those responsibilities in the current source. Add focused data and behavior before
 building a generic editor framework. Renderer nodes, selected handles, and event listeners are not
 the saved document. A template is data plus domain-specific presentation, not a replacement for rules.
 
@@ -112,10 +107,13 @@ Read [Rapier bodies](https://rapier.rs/docs/user_guides/javascript/rigid_bodies/
 
 ## Amazi and verification
 
-Keep package files, lockfile, Vite config, source, assets, and Dockerfile at the allocated application
-root. A single root app can use source path `.`. GitHub synchronization does not register an application;
-load the current `project-application-configuration` guidance and use `empty_application` for imported
-source. Preserve the source path returned by Amazi instead of replacing another application. See
+Keep each application in its own standalone directory inside the project repository, with its package
+files, lockfile, framework configuration, source, assets, tests, and Dockerfile. Inspect the reference
+repository to discover its actual application subtree. GitHub synchronization does not register an
+application; load the current `project-application-configuration` guidance and use `empty_application`
+for imported source. Copy only the app subtree's contents into the returned source path, preserving
+its allocated name and other applications. Use production build context `application` and the actual registered source path. A source-path
+change moves the allocated directory rather than registering an existing populated folder. See
 [Amazi applications](https://docs.amazi.pro/en/applications) and
 [publishing](https://docs.amazi.pro/en/publishing-and-domains) for the public workflow. Honor injected `PORT`,
 `0.0.0.0`, Node 22 compatibility, the pinned package manager, and the Docker runtime contract.
