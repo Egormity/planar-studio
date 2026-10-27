@@ -12,7 +12,7 @@ Inspect the example repository's current README and directory structure to locat
 furniture planner with editable dimensions, selection/placement, rotation, pan/zoom, history, local
 saving, validated JSON import/export, and SVG presentation export. Use the current public repository as the reference.
 If it cannot be fetched, use available project files and the principles below; do not claim inspection.
-No public production preview has been supplied. An authenticated editor link is not a public preview.
+Production preview: [Planar Studio — 2D composition](https://8ff59e33-ba7a-4be7-bddf-1133bbc63c90--3d72c489.projects.amazi.pro/).
 
 Native SVG suits a bounded editable scene; confirm the example's current limits from its source. Keep an existing suitable renderer.
 Konva can supply canvas interaction tools; Fabric can fit a rich graphics editor; PixiJS can fit
