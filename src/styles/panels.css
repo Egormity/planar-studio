@@ -1,0 +1,463 @@
+.catalog-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 9px;
+  padding: 0 15px;
+}
+.catalog-item {
+  text-align: left;
+  border: 1px solid #e5e7de;
+  border-radius: 7px;
+  padding: 0 0 10px;
+  overflow: hidden;
+  background: #fffefa;
+  position: relative;
+}
+.catalog-item:hover {
+  border-color: #a7b593;
+  background: #f5f7ed;
+}
+.catalog-art {
+  display: grid;
+  place-items: center;
+  position: relative;
+  height: 73px;
+  color: #74856b;
+  background: #f0f1e9;
+  margin-bottom: 9px;
+}
+.catalog-sofa .catalog-art,
+.catalog-chair .catalog-art {
+  background: #edf1e7;
+}
+.catalog-table .catalog-art,
+.catalog-storage .catalog-art {
+  background: #f2ece0;
+  color: #a58d6e;
+}
+.catalog-bed .catalog-art {
+  background: #e9eef0;
+  color: #879ba3;
+}
+.catalog-plant .catalog-art {
+  background: #edf1e7;
+  color: #81926b;
+}
+.catalog-rug .catalog-art {
+  background: #efe9e3;
+  color: #ac9a8b;
+}
+.catalog-plus {
+  position: absolute;
+  right: 6px;
+  top: 6px;
+  color: #a0ae93;
+}
+.catalog-item strong {
+  font-size: 11px;
+  font-weight: 500;
+  display: block;
+  margin: 0 10px;
+}
+.catalog-item small {
+  font-size: 9px;
+  color: #76836b;
+  display: block;
+  margin: 4px 10px 0;
+}
+.library-note {
+  padding: 14px 17px 20px;
+  font-size: 9px;
+  line-height: 1.6;
+  color: #8d9b83;
+}
+.library-note span {
+  display: block;
+  color: #a6af9d;
+  font-size: 8px;
+  margin-top: 4px;
+}
+.templates {
+  margin: 0 16px;
+  padding: 20px 0 15px;
+  border-top: 1px solid var(--line);
+}
+.templates h3 {
+  font-size: 13px;
+  margin: 7px 0 14px;
+}
+.template-button {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  width: 100%;
+  text-align: left;
+  padding: 8px 0;
+}
+.template-button > span:nth-child(2) {
+  min-width: 0;
+  flex: 1;
+}
+.template-button strong {
+  display: block;
+  font-size: 10px;
+  font-weight: 500;
+}
+.template-button small {
+  display: block;
+  font-size: 8px;
+  line-height: 1.5;
+  color: #98a18d;
+  margin-top: 4px;
+}
+.template-button > svg {
+  color: #91a17f;
+}
+.template-map {
+  position: relative;
+  width: 40px;
+  height: 40px;
+  background: #f1e9d9;
+  border: 3px solid #8e9986;
+  flex-shrink: 0;
+}
+.template-map i {
+  position: absolute;
+  background: #a8b69b;
+  border-radius: 1px;
+}
+.template-map i:nth-child(1) {
+  left: 2px;
+  top: 3px;
+  width: 7px;
+  height: 18px;
+}
+.template-map i:nth-child(2) {
+  left: 15px;
+  top: 13px;
+  width: 10px;
+  height: 9px;
+  background: #c7b39a;
+}
+.template-map i:nth-child(3) {
+  right: 2px;
+  top: 2px;
+  width: 7px;
+  height: 7px;
+  background: #889b72;
+}
+.template-map-1 i:nth-child(1) {
+  left: 3px;
+  top: 3px;
+  width: 24px;
+  height: 7px;
+  background: #b3a188;
+}
+.template-map-1 i:nth-child(2) {
+  left: 11px;
+  top: 17px;
+  background: #9fb2ba;
+}
+.templates > p {
+  font-size: 8px;
+  color: #a2ae97;
+  margin-top: 10px;
+}
+.selection-hint {
+  padding: 2px 22px 24px;
+  text-align: center;
+}
+.hint-plan {
+  font-size: 58px;
+  color: #a4b48e;
+  display: block;
+  line-height: 1.25;
+  margin: 5px 0 12px;
+}
+.selection-hint strong {
+  font-size: 12px;
+  font-weight: 500;
+  display: block;
+}
+.selection-hint p {
+  font-size: 11px;
+  color: #6f7d65;
+  line-height: 1.7;
+  margin-top: 8px;
+}
+.object-properties {
+  padding: 0 18px 20px;
+}
+.selected-object {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin: 2px 0 20px;
+}
+.selected-object > span {
+  display: grid;
+  place-items: center;
+  width: 43px;
+  height: 43px;
+  border-radius: 8px;
+  color: #405441;
+}
+.selected-object small {
+  display: block;
+  font-size: 8px;
+  letter-spacing: 1.1px;
+  color: #8fa082;
+}
+.selected-object strong {
+  display: block;
+  font-size: 12px;
+  font-weight: 500;
+  margin-top: 5px;
+  max-width: 150px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
+.field-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+.number-field,
+.text-field {
+  display: block;
+  margin-bottom: 13px;
+}
+.number-field > span,
+.text-field > span,
+.color-picker > span {
+  display: block;
+  font-size: 10px;
+  color: #63745e;
+  margin-bottom: 7px;
+}
+.number-field > div {
+  display: flex;
+  align-items: center;
+  border: 1px solid #e0e4d7;
+  border-radius: 5px;
+  background: #f9faf5;
+  padding-right: 10px;
+}
+.number-field input {
+  border: 0;
+  width: 100%;
+  background: none;
+  padding: 9px 8px;
+  color: #4e624b;
+  font-size: 12px;
+}
+.number-field small {
+  font-size: 10px;
+  color: #a2ad97;
+}
+.text-field input {
+  width: 100%;
+  border: 1px solid #e0e4d7;
+  border-radius: 5px;
+  background: #f9faf5;
+  padding: 9px;
+  font-size: 12px;
+}
+.color-picker > div {
+  display: flex;
+  gap: 8px;
+  margin: 10px 0 17px;
+}
+.color-picker button {
+  width: 23px;
+  height: 23px;
+  border-radius: 50%;
+  border: 2px solid var(--cream);
+  outline: 1px solid transparent;
+}
+.color-picker button.active {
+  outline: 1px solid #667e59;
+}
+.object-actions {
+  display: flex;
+  gap: 7px;
+}
+.object-actions button {
+  display: grid;
+  place-items: center;
+  padding: 9px;
+  flex: 1;
+  border: 1px solid #e1e5d8;
+  border-radius: 5px;
+  color: #86947a;
+}
+.object-actions button:hover {
+  background: #eef2e6;
+}
+.object-actions button:last-child:hover {
+  background: #f6e8df;
+  color: #9e6954;
+}
+.room-properties {
+  margin: 0 18px;
+  padding: 20px 0;
+  border-top: 1px solid var(--line);
+}
+.floor-options {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 8px;
+  margin-top: 5px;
+}
+.floor-option {
+  padding: 4px 3px 6px;
+  border: 1px solid #e1e6d8;
+  border-radius: 5px;
+}
+.floor-option[aria-pressed='true'] {
+  border-color: #9aae85;
+  background: #f0f4e7;
+}
+.floor-option > span {
+  display: block;
+  height: 25px;
+  border-radius: 2px;
+  background: #eceae1;
+}
+.floor-oak > span {
+  background: repeating-linear-gradient(90deg, #e7d8be 0 13px, #d5c4a6 14px, #e7d8be 15px);
+}
+.floor-stone > span {
+  background: repeating-conic-gradient(#d9dfda 0% 25%, #d0d7d2 0% 50%) 50% / 16px 16px;
+}
+.floor-option small {
+  font-size: 9px;
+  text-transform: capitalize;
+  color: #8a987c;
+  display: block;
+  margin-top: 5px;
+}
+.objects-list {
+  padding: 20px 18px;
+  border-top: 1px solid var(--line);
+}
+.objects-list > button {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  width: 100%;
+  padding: 9px 7px;
+  text-align: left;
+  font-size: 10px;
+  color: #637456;
+  border-radius: 4px;
+}
+.objects-list > button > span {
+  flex: 1;
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+.objects-list > button.selected {
+  background: #edf3e4;
+  color: #526b41;
+}
+.objects-list > button > small {
+  font-size: 8px;
+  color: #a2ae96;
+}
+.objects-list > button:hover {
+  background: #f0f3e9;
+}
+@media (max-width: 1200px) {
+  .catalog-grid {
+    padding: 0 12px;
+    gap: 7px;
+  }
+  .catalog-art {
+    height: 62px;
+  }
+  .object-properties {
+    padding: 0 14px 18px;
+  }
+  .room-properties {
+    margin: 0 14px;
+  }
+  .objects-list {
+    padding: 18px 14px;
+  }
+  .color-picker > div {
+    gap: 5px;
+  }
+  .color-picker button {
+    width: 21px;
+    height: 21px;
+  }
+  .field-grid {
+    gap: 8px;
+  }
+}
+@media (max-width: 680px) {
+  .catalog-grid {
+    grid-template-columns: repeat(4, 1fr);
+    gap: 8px;
+    padding: 0 14px;
+  }
+  .catalog-art {
+    height: 58px;
+  }
+  .catalog-item strong {
+    font-size: 10px;
+    margin: 0 6px;
+  }
+  .catalog-item small {
+    font-size: 8px;
+    margin: 3px 6px 0;
+  }
+  .library-note {
+    padding-bottom: 16px;
+  }
+  .templates {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 5px 15px;
+    padding-top: 15px;
+  }
+  .templates > .eyebrow,
+  .templates > h3,
+  .templates > p {
+    grid-column: 1 / -1;
+  }
+  .templates h3 {
+    margin: 2px 0 4px;
+  }
+  .selected-object strong {
+    max-width: none;
+  }
+  .object-properties {
+    padding: 18px;
+  }
+  .selection-hint {
+    padding: 18px 25px 25px;
+  }
+  .field-grid {
+    gap: 14px;
+  }
+  .color-picker > div {
+    gap: 12px;
+  }
+  .color-picker button {
+    width: 27px;
+    height: 27px;
+  }
+  .objects-list {
+    padding: 20px;
+  }
+  .objects-list > button {
+    font-size: 12px;
+  }
+  .objects-list > button > small {
+    font-size: 10px;
+  }
+}
