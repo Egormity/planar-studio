@@ -62,6 +62,11 @@ window marks are not editable building openings; furniture clearance and collisi
 - [Research](docs/research.md): SVG, canvas libraries, browser APIs, and official open-source examples.
 - [Amazi application setup](docs/amazi.md): root app structure, registration, ports, tools, and Docker.
 - [Assets and licenses](docs/assets.md): original SVG artwork and bundled font notices.
+- [Amazi skill](skill/agent-content.md): reusable guidance for interactive 2D visualizations.
+
+`skill/catalog.json` contains English, Russian, and Spanish Admin metadata. The corresponding
+instructions are in `skill/agent-content.md`; Amazi assigns the custom skill UUID on creation.
+The skill links this example and its architecture, extension, research, and runtime documentation.
 
 The reference uses React, TypeScript, and native SVG. Persistent geometry never stores screen
 coordinates or renderer nodes. A drag preview is temporary; one completed gesture commits one

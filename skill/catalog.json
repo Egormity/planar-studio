@@ -1,0 +1,10 @@
+{
+  "userTitleEn": "Interactive 2D visualization",
+  "userTitleRu": "Интерактивная 2D-визуализация",
+  "userTitleEs": "Visualización 2D interactiva",
+  "userDescriptionEn": "Build interactive 2D layouts, floor plans, furniture previews, diagrams, and configurators. Separate document data, geometry, viewport, gestures, history, and interface. Includes the Planar Studio example with selection, placement, dimensions, and JSON/SVG export.",
+  "userDescriptionRu": "Создавайте интерактивные 2D-планы, схемы, расстановки мебели и конфигураторы. Разделяйте данные документа, геометрию, область просмотра, жесты, историю и интерфейс. Включает пример Planar Studio с выбором, размещением, размерами и экспортом JSON/SVG.",
+  "userDescriptionEs": "Crea planos, distribuciones, vistas de muebles, diagramas y configuradores 2D interactivos. Separa documento, geometría, vista, gestos, historial e interfaz. Incluye Planar Studio con selección, colocación, dimensiones y exportación JSON/SVG.",
+  "icon": "ruler",
+  "agentDescription": "Use for building or extending interactive spatial 2D visualizations and editors: floor plans, furniture or construction previews, layouts, diagrams, and configurators with selection, manipulation, measurements, or export. Includes the Planar Studio React/TypeScript/SVG reference and guidance on document geometry, viewport coordinates, constraints, gesture transactions, history, import/export, accessibility, and Amazi integration. Preserve the user's domain and an existing suitable renderer. For playable game rules or ordinary statistical charts, use a foundation suited to those requirements."
+}
