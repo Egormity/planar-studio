@@ -45,7 +45,7 @@ lifetime, seeded fixtures and reduced-motion behavior. Do not allocate a DOM nod
 per decorative particle. A new renderer also needs coordinate conversion, selection and accessibility;
 GPU rendering alone does not supply an editor.
 
-See the [visualization skill](../skill/agent-content.md) for the staged development workflow and
+See the [visualization skill](https://github.com/Egormity/planar-studio/blob/main/skill/agent-content.md) for the staged development workflow and
 primary physics/particle references. Keep the starter's implemented feature list accurate.
 
 ## Add a gesture
