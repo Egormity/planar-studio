@@ -1,165 +1,122 @@
 .drawing-card {
-  background: #fff;
-  border: 1px solid #dce1d4;
-  border-radius: 11px;
   overflow: hidden;
-  box-shadow: 0 5px 15px #3e503705;
+  border: 1px solid var(--line);
+  border-radius: 16px;
+  background: var(--surface);
+  box-shadow: var(--shadow-md);
 }
 .viewport-toolbar {
   display: flex;
-  justify-content: space-between;
-  gap: 8px;
   align-items: center;
-  padding: 12px;
-  background: #fdfdf9;
-  border-bottom: 1px solid #e2e5db;
+  justify-content: space-between;
+  gap: 10px;
+  padding: 10px 12px;
+  border-bottom: 1px solid var(--line);
+  background: var(--surface);
 }
 .tool-cluster {
   display: flex;
   align-items: center;
-  gap: 4px;
+  gap: 2px;
+  min-width: 0;
 }
 .tool-cluster button {
-  display: flex;
+  display: inline-flex;
   align-items: center;
   justify-content: center;
-  gap: 5px;
-  min-height: 31px;
-  min-width: 31px;
-  border-radius: 5px;
-  color: #8b9a7f;
-  padding: 7px;
+  gap: 6px;
+  min-width: 36px;
+  min-height: 36px;
+  padding: 0 9px;
+  border-radius: 9px;
+  color: var(--muted);
+  font-size: 12px;
+  font-weight: 500;
 }
 .tool-cluster button:hover {
-  background: #edf2e5;
+  background: var(--surface-soft);
+  color: var(--ink);
 }
 .tool-cluster button[aria-pressed='true'] {
-  color: #44613b;
-  background: #ecf2e2;
+  background: var(--green-soft);
+  color: var(--green);
 }
 .tool-segment {
   display: flex;
   gap: 2px;
-  padding: 2px;
-  background: #f0f3e9;
-  border: 1px solid #e1e6d7;
-  border-radius: 6px;
+  padding: 3px;
+  border-radius: 11px;
+  background: #f2f3ed;
 }
 .tool-segment button {
-  min-width: 30px;
-  min-height: 29px;
-  padding: 5px;
+  min-height: 32px;
+  border-radius: 8px;
 }
 .tool-segment button[aria-pressed='true'] {
-  background: #fff;
-  box-shadow: 0 1px 4px #66735315;
-  color: #45643c;
-}
-.tool-with-label span {
-  font-size: 10px;
+  background: var(--surface);
+  box-shadow: 0 1px 4px #24332c14;
 }
 .tool-divider {
-  width: 1px;
-  height: 19px;
-  background: #e0e4d6;
   display: block;
+  width: 1px;
+  height: 20px;
   margin: 0 7px;
+  background: var(--line);
+}
+.history-tools {
+  border-left: 1px solid var(--line);
+  padding-left: 8px;
 }
 .plan-viewport {
-  height: 600px;
-  background: #e9ede5;
   position: relative;
   overflow: hidden;
+  height: clamp(460px, 64vh, 680px);
+  background: #eef0e9;
 }
 .plan-svg {
+  display: block;
   width: 100%;
   height: 100%;
-  display: block;
   touch-action: none;
 }
-.view-tag {
+.canvas-zoom {
   position: absolute;
-  top: 19px;
-  left: 20px;
-  font-size: 8px;
-  letter-spacing: 1.4px;
-  color: #8f9f83;
-  background: #f8faf3d9;
-  padding: 7px 10px;
-  border: 1px solid #dfe7d5;
-  border-radius: 4px;
-  pointer-events: none;
-}
-.view-tag span {
-  padding: 0 5px;
-  color: #bdc7b4;
-}
-.canvas-status {
-  height: 49px;
+  right: 14px;
+  bottom: 14px;
   display: flex;
   align-items: center;
-  justify-content: space-between;
-  padding: 0 16px;
-  color: #91a181;
-  background: #fdfdf9;
-  border-top: 1px solid #e1e6d8;
-  gap: 10px;
+  gap: 2px;
+  padding: 4px;
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  background: #fffefaef;
+  box-shadow: 0 6px 20px #24332c14;
+  backdrop-filter: blur(6px);
 }
-.canvas-status > div:first-child {
-  display: flex;
-  align-items: center;
-  gap: 6px;
-  font-size: 9px;
-}
-.plan-dot {
-  width: 5px;
-  height: 5px;
-  background: #97aa80;
-  border-radius: 50%;
-}
-.status-separator {
-  color: #c0cbb5;
-  margin: 0 3px;
-}
-.zoom-controls {
-  display: flex;
-  align-items: center;
-  gap: 3px;
-}
-.zoom-controls button {
-  padding: 6px;
+.canvas-zoom button {
   display: grid;
   place-items: center;
-  border-radius: 4px;
-  color: #829774;
+  width: 34px;
+  height: 34px;
+  border-radius: 8px;
+  color: var(--muted);
 }
-.zoom-controls button:hover {
-  background: #eef3e5;
+.canvas-zoom button:hover {
+  background: var(--surface-soft);
+  color: var(--ink);
 }
-.zoom-controls output {
-  font-size: 10px;
-  min-width: 37px;
+.canvas-zoom output {
+  min-width: 46px;
   text-align: center;
-  color: #718567;
+  color: var(--ink);
+  font-size: 12px;
+  font-weight: 600;
 }
-.editor-hints {
-  display: flex;
-  align-items: center;
-  flex-wrap: wrap;
-  gap: 12px;
-  padding: 13px 4px 0;
-  color: #718064;
-  font-size: 9px;
-}
-.editor-hints > span {
-  display: flex;
-  align-items: center;
-  gap: 4px;
-}
-.editor-hints small {
-  font-size: 8px;
-  margin-left: auto;
-  color: #a4ae99;
+.zoom-divider {
+  width: 1px;
+  height: 20px;
+  margin: 0 3px;
+  background: var(--line);
 }
 .plan-svg [role='button'] {
   cursor: grab;
@@ -172,91 +129,46 @@
   filter: drop-shadow(0 0 3px #477db9);
 }
 @media (max-width: 1350px) {
-  .tool-with-label span {
+  .viewport-toolbar .tool-label {
     display: none;
   }
   .plan-viewport {
-    height: 570px;
-  }
-  .viewport-toolbar {
-    padding: 10px;
+    height: clamp(440px, 60vh, 620px);
   }
   .tool-divider {
     margin: 0 4px;
   }
-  .editor-hints small {
-    width: 100%;
-    margin: 0;
-  }
-}
-@media (max-width: 1000px) {
-  .plan-viewport {
-    height: 560px;
-  }
 }
 @media (max-width: 680px) {
-  .plan-viewport {
-    height: 410px;
-  }
   .viewport-toolbar {
+    gap: 4px;
     padding: 8px;
-    gap: 3px;
   }
   .tool-cluster {
-    gap: 2px;
+    gap: 1px;
   }
   .tool-cluster button {
-    min-height: 32px;
-    min-width: 30px;
-    padding: 6px;
+    min-width: 34px;
+    min-height: 34px;
+    padding: 0 8px;
+  }
+  .tool-segment {
+    padding: 2px;
   }
   .tool-segment button {
-    min-width: 29px;
+    min-height: 31px;
   }
   .tool-divider {
     margin: 0 3px;
   }
   .history-tools {
-    margin-left: auto;
+    padding-left: 5px;
   }
-  .canvas-status {
-    padding: 0 10px;
-    height: 47px;
+  .plan-viewport {
+    height: 430px;
   }
-  .canvas-status > div:first-child {
-    font-size: 8px;
-    gap: 4px;
-  }
-  .canvas-status .status-separator {
-    margin: 0 1px;
-  }
-  .zoom-controls {
-    gap: 0;
-  }
-  .zoom-controls button {
-    padding: 5px;
-  }
-  .zoom-controls output {
-    font-size: 9px;
-    min-width: 32px;
-  }
-  .editor-hints {
-    gap: 8px;
-    font-size: 8px;
-    padding: 12px 1px 0;
-  }
-  .editor-hints > span:nth-child(2),
-  .editor-hints > span:nth-child(4) {
-    display: none;
-  }
-  .editor-hints small {
-    width: auto;
-    margin-left: auto;
-  }
-  .view-tag {
-    top: 13px;
-    left: 13px;
-    font-size: 7px;
-    padding: 6px 8px;
+  .canvas-zoom {
+    right: 10px;
+    bottom: 10px;
   }
 }

@@ -30,7 +30,7 @@ export function ViewportToolbar({
   return (
     <div className="viewport-toolbar">
       <div className="tool-cluster">
-        <div className="tool-segment">
+        <div className="tool-segment" role="group" aria-label="Canvas mode">
           <button
             type="button"
             aria-label="Select objects"
@@ -39,6 +39,7 @@ export function ViewportToolbar({
             onClick={() => setPanMode(false)}
           >
             <MousePointer2 size={17} />
+            <span className="tool-label">Select</span>
           </button>
           <button
             type="button"
@@ -48,35 +49,39 @@ export function ViewportToolbar({
             onClick={() => setPanMode(true)}
           >
             <Hand size={17} />
+            <span className="tool-label">Pan</span>
           </button>
         </div>
         <span className="tool-divider" />
         <button
           className="tool-with-label"
           aria-label="Show grid"
+          title="Show grid"
           aria-pressed={grid}
           onClick={() => setGrid(!grid)}
         >
           <Grid2X2 size={16} />
-          <span>Grid</span>
+          <span className="tool-label">Grid</span>
         </button>
         <button
           className="tool-with-label"
           aria-label="Snap to 10 cm"
+          title="Snap to 10 cm"
           aria-pressed={snap}
           onClick={() => setSnap(!snap)}
         >
           <Magnet size={16} />
-          <span>Snap</span>
+          <span className="tool-label">Snap</span>
         </button>
         <button
           className="tool-with-label"
           aria-label="Show dimensions"
+          title="Show dimensions"
           aria-pressed={dimensions}
           onClick={() => setDimensions(!dimensions)}
         >
           <Ruler size={16} />
-          <span>Dimensions</span>
+          <span className="tool-label">Dimensions</span>
         </button>
       </div>
       <div className="tool-cluster history-tools">

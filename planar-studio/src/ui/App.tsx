@@ -1,5 +1,5 @@
 import { useRef, useState } from 'react';
-import { ArrowUpRight, Maximize2, Minus, Plus, X } from 'lucide-react';
+import { Maximize2, Minus, Plus, X } from 'lucide-react';
 import { usePlanner } from '../editor/usePlanner';
 import { serializeDocument } from '../model/serialization';
 import { PlanCanvas } from '../scene/PlanCanvas';
@@ -23,6 +23,7 @@ export function App() {
   const svgRef = useRef<SVGSVGElement>(null);
   const importRef = useRef<HTMLInputElement>(null);
   const { document } = planner;
+  const area = ((document.room.width * document.room.depth) / 10_000).toFixed(2);
   const fit = () => {
     setZoom(1);
     setFitToken((value) => value + 1);
@@ -81,30 +82,7 @@ export function App() {
           }
         }}
       />
-      <main>
-        <div className="workspace-heading">
-          <div>
-            <div className="eyebrow breadcrumb">
-              YOUR WORKSPACE <span>/</span> FLOOR PLAN
-            </div>
-            <h1>
-              Make room for your ideas<span>.</span>
-            </h1>
-            <p>Move things around. See what feels right.</p>
-          </div>
-          <div className="area-card">
-            <span className="area-mark" aria-hidden="true">
-              ⌑
-            </span>
-            <div>
-              <strong>
-                {((document.room.width * document.room.depth) / 10_000).toFixed(2)}{' '}
-                <small>m²</small>
-              </strong>
-              <span>YOUR ROOM TO CREATE</span>
-            </div>
-          </div>
-        </div>
+      <main className="workspace">
         {(planner.error || fileError) && (
           <div className="notice" role="alert">
             <span>{fileError || planner.error}</span>
@@ -159,27 +137,13 @@ export function App() {
                   fitToken={fitToken}
                   svgRef={svgRef}
                 />
-                <span className="view-tag">
-                  TOP VIEW <span>·</span> 2D
-                </span>
-              </div>
-              <div className="canvas-status">
-                <div>
-                  <span className="plan-dot" />
-                  {document.items.length} objects<span className="status-separator">/</span>
-                  {snap ? '10 cm snap' : 'Free placement'}
-                </div>
-                <div className="zoom-controls">
-                  <button aria-label="Fit plan" title="Fit plan" onClick={fit}>
-                    <Maximize2 size={16} />
-                  </button>
-                  <span className="tool-divider" />
+                <div className="canvas-zoom" role="group" aria-label="Zoom controls">
                   <button
                     aria-label="Zoom out"
                     disabled={zoom <= 0.5}
                     onClick={() => setZoom((value) => Math.max(0.5, value - 0.25))}
                   >
-                    <Minus size={15} />
+                    <Minus size={16} />
                   </button>
                   <output aria-label="Zoom level">{Math.round(zoom * 100)}%</output>
                   <button
@@ -187,35 +151,14 @@ export function App() {
                     disabled={zoom >= 2.5}
                     onClick={() => setZoom((value) => Math.min(2.5, value + 0.25))}
                   >
-                    <Plus size={15} />
+                    <Plus size={16} />
+                  </button>
+                  <span className="zoom-divider" aria-hidden="true" />
+                  <button aria-label="Fit plan" title="Fit plan" onClick={fit}>
+                    <Maximize2 size={16} />
                   </button>
                 </div>
               </div>
-            </div>
-            <div className="editor-hints">
-              <span>
-                <kbd>Drag</kbd> to arrange
-              </span>
-              <span>
-                <kbd>Space</kbd> to pan
-              </span>
-              <span>
-                <kbd>R</kbd> to rotate
-              </span>
-              <span>
-                <kbd>↑↓←→</kbd> to fine-tune
-              </span>
-              <small>Overlapping pieces are allowed.</small>
-            </div>
-            <div className="studio-note">
-              <span className="note-icon">
-                <ArrowUpRight size={23} strokeWidth={1.4} />
-              </span>
-              <div>
-                <strong>A little perspective changes everything.</strong>
-                <p>Try a different finish, open up a corner, make a space that feels like you.</p>
-              </div>
-              <span className="note-rule" />
             </div>
           </section>
           <Inspector
@@ -231,12 +174,29 @@ export function App() {
           />
         </div>
       </main>
-      <footer>
-        <span>
-          PLANAR STUDIO <i>✳</i> A SPACE FOR POSSIBILITIES
-        </span>
-        <p>Explore layouts. Keep your ideas.</p>
-        <small>Concept plans · not construction drawings</small>
+      <footer className="site-footer">
+        <div className="workspace-heading">
+          <div className="footer-intro">
+            <span className="footer-eyebrow">Planar Studio</span>
+            <h1>
+              Make room for your ideas<span>.</span>
+            </h1>
+            <p>Move things around. See what feels right.</p>
+          </div>
+          <div className="area-card" aria-label={`Room area: ${area} square metres`}>
+            <div>
+              <strong>
+                {area}
+                <small>m²</small>
+              </strong>
+              <span>Room area</span>
+            </div>
+          </div>
+        </div>
+        <div className="footer-meta">
+          <span>Planar Studio — a space for possibilities</span>
+          <small>Concept plans, not construction drawings</small>
+        </div>
       </footer>
     </div>
   );

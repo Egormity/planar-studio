@@ -1,4 +1,4 @@
-import { Copy, RotateCw, SlidersHorizontal, Trash2 } from 'lucide-react';
+import { Copy, MousePointer2, RotateCw, Trash2 } from 'lucide-react';
 import { useEffect, useState } from 'react';
 import type { Furniture, PlanDocument, Room } from '../model/types';
 import { FurnitureIcon } from './FurnitureIcon';
@@ -20,7 +20,7 @@ function ObjectName({ item, onCommit }: { item: Furniture; onCommit(name: string
   useEffect(() => setName(item.label), [item.label, item.id]);
   return (
     <label className="text-field">
-      <span>Object name</span>
+      <span>Name</span>
       <input
         aria-label="Object name"
         value={name}
@@ -50,11 +50,13 @@ export function Inspector({
 }: Props) {
   return (
     <aside className="inspector-panel panel" aria-label="Properties">
-      <div className="panel-title">
-        <span className="eyebrow">MAKE IT YOURS</span>
-        <h2>
-          {item ? 'Object details' : 'Your space'} <SlidersHorizontal size={18} />
-        </h2>
+      <div className="panel-heading">
+        <div>
+          <h2>{item ? 'Piece details' : 'Room details'}</h2>
+          <p>
+            {item ? 'Size, position and finish.' : 'Pick a piece to edit it, or adjust the room.'}
+          </p>
+        </div>
       </div>
       {item ? (
         <div className="object-properties" key={item.id}>
@@ -63,11 +65,14 @@ export function Inspector({
               <FurnitureIcon kind={item.kind} />
             </span>
             <div>
-              <small>SELECTED OBJECT</small>
               <strong>{item.label}</strong>
+              <small>
+                {(item.width / 100).toFixed(1)} × {(item.depth / 100).toFixed(1)} m
+              </small>
             </div>
           </div>
           <ObjectName item={item} onCommit={(label) => updateItem(item.id, { label })} />
+          <div className="section-label">Size and position</div>
           <div className="field-grid">
             <NumberField
               label="Object width"
@@ -125,7 +130,8 @@ export function Inspector({
           </div>
           <div className="object-actions">
             <button title="Rotate 90°" aria-label="Rotate object" onClick={rotate}>
-              <RotateCw size={17} />
+              <RotateCw size={16} />
+              <span>Rotate</span>
             </button>
             <button
               title="Duplicate"
@@ -133,26 +139,28 @@ export function Inspector({
               onClick={duplicate}
               disabled={document.items.length >= 60}
             >
-              <Copy size={17} />
+              <Copy size={16} />
+              <span>Duplicate</span>
             </button>
             <button title="Delete" aria-label="Delete object" onClick={remove}>
-              <Trash2 size={17} />
+              <Trash2 size={16} />
+              <span>Delete</span>
             </button>
           </div>
         </div>
       ) : (
         <div className="selection-hint">
-          <span className="hint-plan" aria-hidden="true">
-            ⌑
+          <span className="selection-icon" aria-hidden="true">
+            <MousePointer2 size={19} />
           </span>
-          <strong>Every piece has its place.</strong>
-          <p>Select a piece on the plan to adjust its size, position, and finish.</p>
+          <div>
+            <strong>No piece selected</strong>
+            <p>Click any piece on the plan to change its size, position and finish.</p>
+          </div>
         </div>
       )}
       <section className="room-properties" aria-label="Room settings">
-        <div className="section-label">
-          ROOM SETTINGS<span>METRIC</span>
-        </div>
+        <div className="section-label">Room size</div>
         <div className="field-grid">
           <NumberField
             label="Room width"
@@ -169,6 +177,7 @@ export function Inspector({
             onCommit={(depth) => updateRoom({ depth: depth * 100 })}
           />
         </div>
+        <span className="floor-heading">Floor finish</span>
         <div className="floor-options" role="group" aria-label="Floor finish">
           {(['oak', 'stone', 'plain'] as const).map((floor) => (
             <button
@@ -186,7 +195,7 @@ export function Inspector({
       </section>
       <section className="objects-list" aria-label="Objects in this plan">
         <div className="section-label">
-          IN THIS PLAN<span>{document.items.length}</span>
+          Pieces<span>{document.items.length}</span>
         </div>
         {document.items.map((entry) => (
           <button

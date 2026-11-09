@@ -1,4 +1,4 @@
-import { ArrowUpRight, Layers, Plus } from 'lucide-react';
+import { ArrowUpRight, Plus } from 'lucide-react';
 import { CATALOG } from '../model/catalog';
 import { TEMPLATES } from '../model/templates';
 import type { FurnitureKind } from '../model/types';
@@ -11,14 +11,14 @@ interface Props {
 export function Library({ add, loadTemplate, count }: Props) {
   return (
     <aside className="library-panel panel" aria-label="Object library">
-      <div className="panel-title">
-        <span className="eyebrow">THE BUILDING BLOCKS</span>
-        <h2>
-          Object library <Layers size={18} />
-        </h2>
-        <p>A few good pieces. Endless possibilities.</p>
+      <div className="panel-heading">
+        <div>
+          <h2>Furniture</h2>
+          <p>Click a piece to add it.</p>
+        </div>
+        <span className="count-pill">{count}/60</span>
       </div>
-      <div className="catalog-grid">
+      <div className="catalog-list">
         {CATALOG.map((item) => (
           <button
             key={item.kind}
@@ -28,21 +28,21 @@ export function Library({ add, loadTemplate, count }: Props) {
             onClick={() => add(item.kind)}
           >
             <span className="catalog-art">
-              <FurnitureIcon kind={item.kind} size={35} />
-              <Plus className="catalog-plus" size={13} />
+              <FurnitureIcon kind={item.kind} size={26} />
             </span>
-            <strong>{item.label}</strong>
-            <small>
-              {(item.width / 100).toFixed(1)} × {(item.depth / 100).toFixed(1)} m
-            </small>
+            <span className="catalog-copy">
+              <strong>{item.label}</strong>
+              <small>
+                {(item.width / 100).toFixed(1)} × {(item.depth / 100).toFixed(1)} m
+              </small>
+            </span>
+            <span className="catalog-add" aria-hidden="true">
+              <Plus size={15} />
+            </span>
           </button>
         ))}
       </div>
-      <div className="library-note">
-        Click a piece to add it to your plan.<span>{count} / 60 pieces in this space</span>
-      </div>
       <div className="templates">
-        <span className="eyebrow">A PLACE TO BEGIN</span>
         <h3>Start with a layout</h3>
         {TEMPLATES.map((template, i) => (
           <button
@@ -57,14 +57,13 @@ export function Library({ add, loadTemplate, count }: Props) {
               <i />
               <i />
             </span>
-            <span>
+            <span className="template-copy">
               <strong>{template.name}</strong>
               <small>{template.description}</small>
             </span>
-            <ArrowUpRight size={15} />
+            <ArrowUpRight size={16} />
           </button>
         ))}
-        <p>You can undo a layout change.</p>
       </div>
     </aside>
   );

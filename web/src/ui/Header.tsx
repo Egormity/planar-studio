@@ -16,21 +16,17 @@ export function Header({ name, saved, exportJson, exportSvg, importJson, exporti
           <i />
           <i />
         </span>
-        <strong>
-          planar<span>.</span>
-        </strong>
-        <small>
-          SPACE
-          <br />
-          STUDIO
-        </small>
+        <span className="brand-type">
+          <strong>planar</strong>
+          <small>studio</small>
+        </span>
       </a>
       <div className="document-status">
-        <span>{name}</span>
-        <small>
+        <span className="document-name">{name}</span>
+        <span className="save-state">
           <i className={saved ? 'saved' : 'unsaved'} />
-          {saved ? 'Saved on this device' : 'Export to keep a copy'}
-        </small>
+          {saved ? 'Saved in this browser' : 'Saving unavailable'}
+        </span>
       </div>
       <div className="header-actions">
         <button
